@@ -1,0 +1,356 @@
+/*-----[ Global ]----*/
+html, body {
+  height: 100%;
+}
+
+body {
+  background: gray;
+  overflow-x: hidden;
+  font-family: 'Playfair Display', serif;
+
+  button:focus {
+    outline: none;
+  }
+}
+/*-----[ /.Global ]----*/
+
+/*-----[ Header ]----*/
+header {
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 4;
+
+  &.sticky {
+    background: white;
+    box-shadow: 0 1px 5px rgba(0,0,0,  0.2);
+
+    .logo img {
+      top: -100%;
+    }
+    nav ul li {
+      color: #333;
+
+      &:before {
+        background: #333;
+      }
+    }
+  }
+
+  .logo {
+    width: 35px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 131.4%;
+    }
+    img {
+      height: 200%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+/*-----[ /.Header ]----*/
+
+/*-----[ Navbar ]----*/
+nav {
+  float: right;
+  text-transform: capitalize;
+
+  .nav-btn {
+    display: none;
+  }
+
+  ul {
+    position: relative;
+
+    li {
+      display: inline-block;
+      color: white;
+      margin: 0;
+      margin-left: 40px;
+      position: relative;
+
+      &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: 25px;
+        height: 3px;
+        background: white;
+        width: 0;
+        transition: width 0.9s;
+      }
+
+      &:hover:before {
+        width: 100%;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-left: 80px;
+
+        .icon {
+          margin-left: 5px;
+          vertical-align: middle;
+          position: relative;
+          transition: right 0.9s;
+          right: 0;
+        }
+        &:hover .icon {
+          right: -5px;
+        }
+      }
+    }
+    a {
+      color: inherit;
+
+      &:hover, &:focus {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+}
+/*-----[ /.Navbar ]----*/
+
+/*-----[ Mobile Navbar Media Query Style Max-width 767px ]----*/
+@media (max-width: 767px) {
+
+  header {
+    nav {
+    }
+    nav:not(.active) ul li {
+      /*display: none;*/
+      right: -200px;
+    }
+    nav:not(.active) .nav-btn {
+      background: transparent;
+    }
+
+    .nav-btn {
+      display: block;
+    }
+
+    ul {
+      width: 200px;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+
+      li{
+        display: block;
+        margin-left: 0;
+        background: rebeccapurple;
+        margin-bottom: 10px;
+        position: relative;
+        right: 0;
+        transition: right .3s linear;
+
+        &:before {
+          display: none;
+        }
+
+        &:last-child {
+          margin-left: 0;
+        }
+
+        &:hover {
+          background: black;
+        }
+
+        &:nth-child(2) {
+          transition-delay: .4s;
+        }
+
+        &:nth-child(3) {
+          transition-delay: .5s;
+        }
+
+        &:nth-child(4) {
+          transition-delay: .6s;
+        }
+
+        &:nth-child(5) {
+          transition-delay: .7s;
+        }
+
+        a {
+          padding: 15px;
+          display: block;
+          border-bottom: 1px solid white;
+          border-right: 5px solid #669fe8;
+        }
+      }
+    }
+
+    .nav-btn {
+      background: rebeccapurple;
+      border: none;
+      width: 40px;
+      padding: 9px;
+      border-radius: 3px;
+      margin-top: 16px;
+
+      .btn-line {
+        display: block;
+        height: 2px;
+        margin-bottom: 6px;
+        background-color: white;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+/* -- [ Sticky ] -- */
+
+  header.sticky {
+    .nav-btn {
+      background: rgba(0,0,0,0.3);
+    }
+    .btn-line {
+      background-color: #333;
+    }
+    li {
+      background: #333;
+      a {
+        color: white;
+        border-right: 5px solid #669fe8;
+      }
+    }
+  }
+}
+
+/*-----[ /.Mobile Navbar Media Query Style Max-width 767px ]----*/
+
+/*-----[ Main Section ]----*/
+.section {
+  height: 100%;
+  padding-top: 92px;
+}
+
+.main-section{
+  background: url(../images/bg.jpg);
+  background-size: cover;
+  min-height: 680px;
+
+  .layout {
+    background-color: rgba(0, 0 ,0 , 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    min-height: 680px;
+    color: #FFF;
+    z-index: 1;
+    padding-top: 110px;
+  }
+
+  .title {
+    text-align: right;
+    font-size: 60px;
+    color: white;
+    line-height: 0.9;
+    text-transform: capitalize;
+
+    .small {
+      display: block;
+      font-size: 12px;
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      font-weight: lighter;
+      margin-bottom: 30px;
+      opacity: 0.8;
+    }
+  }
+
+  .box {
+    text-align: right;
+
+    img {
+      box-shadow: 20px 45px 55px rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+    }
+
+    .details {
+      margin-top: 15%;
+      text-transform: capitalize;
+
+      p {
+        margin: 0;
+        padding: 0;
+
+        &:last-child {
+          margin-top: 10px;
+        }
+      }
+
+      .small {
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
+        opacity: 0.8;
+
+        .white {
+          letter-spacing: 1.5px;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: white;
+        }
+      }
+
+      .phone-number {
+        font-size: 40px;
+        font-family: 'Lora', serif;
+      }
+    }
+
+  }
+}
+/*-----[ Main Section & Img Picture With Mobile ]----*/
+@media (max-width: 991px) {
+  .box .image {
+    padding-top: 10%;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .main-section {
+    .title, p {
+      text-align: center;
+    }
+  }
+}
+/*-----[ /.Main Section & Img Picture With Mobile ]----*/
+
+/*-----[ /.Main Section ]----*/
+
+.section-tow {
+  background-color: white;
+}
